@@ -1,0 +1,24 @@
+/* src/components/ExpenseDetails.css */
+.expense-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 16px;
+  }
+  
+  .expense-details h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .expense-details_location {
+    color: #777;
+  }
+  
+  .expense-details_amount {
+    font-weight: bold;
+    color: #e44d26; /* or any other color you prefer for prices */
+  }
+  

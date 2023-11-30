@@ -1,0 +1,24 @@
+/* src/components/ExpenseDate.css */
+.expense-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 16px;
+  }
+  
+  .expense-date_month {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .expense-date_day {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e44d26; /* or any other color you prefer for day */
+  }
+  
+  .expense-date_year {
+    font-size: 1rem;
+    color: #777;
+  }
+  

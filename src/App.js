@@ -1,20 +1,8 @@
-/*// App.js (Corrected case for import)
-import React from 'react';
-import ExpenseItem from './components/Expenseitem';  // Corrected case for component name
-
-function App() {
-  return (
-    <div>
-      <h2>Let's get started!</h2>
-      {/* Use self-closing tag for ExpenseItem component *//*}
-      <ExpenseItem />
-    </div>
-  );
-}
-export default App;*/
 
 import React from 'react';
 import ExpenseItem from './components/Expenseitem';
+import ExpenseDetails from './components/ExpenseDetails';
+import ExpenseDate from './components/ExpenseDate';
 
 function App() {
   const expenses = [
