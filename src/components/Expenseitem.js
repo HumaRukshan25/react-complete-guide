@@ -1,26 +1,41 @@
-
+/*
+// Expenseitem.js
 import React from 'react';
-
+import './Expenseitem.css';
 function Expenseitem() {
+  const expenseDate = new Date(2021, 2, 28);
+  const expenseTitle = 'Car Insurance';
+  const expenseAmount = 294.67;
+  const locationOfExpenditure = 'Gas Station'; // Add your location variable here
   return (
-    <div>
-      <div>March 28th, 2021</div>
-      <div>
-        <h2>Car Insurance</h2>
-        <div>$294.67</div>
+    <div className='expense-item'>
+      <div>{expenseDate.toISOString()}</div>
+      <div className='expense-item_description'>
+        <h2>{expenseTitle}</h2>
+        <div className='expense-item_location'>{locationOfExpenditure}</div>
+        <div className='expense-item_price'>${expenseAmount}</div>
       </div>
+    </div>
+  );
+}
+export default Expenseitem;
+*/
+import React from 'react';
+import './Expenseitem.css';
 
-      {/* Expenses */}
-      <div>
-        <h3>Expense Items</h3>
-        <ul>
-          <li>Food Rs 10</li>
-          <li>Petrol Rs 100</li>
-          <li>Movies Rs 200</li>
-        </ul>
+function Expenseitem(props) {
+  return (
+    <div className='expense-item'>
+      <div>{props.date.toISOString()}</div>
+      <div className='expense-item_description'>
+        <h2>{props.title}</h2>
+        <div className='expense-item_location'>{props.locationOfExpenditure}</div>
+        <div className='expense-item_price'>${props.amount}</div>
       </div>
     </div>
   );
 }
 
 export default Expenseitem;
+
+
