@@ -1,18 +1,10 @@
 // App.js
 import React, { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
-import ExpenseForm from './components/Expenses/ExpenseForm';
+import ExpenseForm from './components/Expense/ExpenseForm';
 
 const App = () => {
-  const [expenses, setExpenses] = useState([]);
-
-  const saveExpenseDataHandler = (enteredExpenseData) => {
-    setExpenses((prevExpenses) => {
-      return [...prevExpenses, enteredExpenseData];
-    });
-  };
-
-  const initialExpenses = [
+  const [expenses, setExpenses] = useState([
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -32,12 +24,13 @@ const App = () => {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-  ];
+  ]);
 
-  // Use the initialExpenses to populate the initial state
-  useState(() => {
-    setExpenses(initialExpenses);
-  });
+  const saveExpenseDataHandler = (enteredExpenseData) => {
+    setExpenses((prevExpenses) => {
+      return [...prevExpenses, enteredExpenseData];
+    });
+  };
 
   return (
     <div>
