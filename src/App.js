@@ -1,9 +1,18 @@
-import React from 'react';
-
+// App.js
+import React, { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
+import ExpenseForm from './components/Expenses/ExpenseForm';
 
 const App = () => {
-  const expenses = [
+  const [expenses, setExpenses] = useState([]);
+
+  const saveExpenseDataHandler = (enteredExpenseData) => {
+    setExpenses((prevExpenses) => {
+      return [...prevExpenses, enteredExpenseData];
+    });
+  };
+
+  const initialExpenses = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -25,19 +34,18 @@ const App = () => {
     },
   ];
 
-  // return React.createElement(
-  //   'div',
-  //   {},
-  //   React.createElement('h2', {}, "Let's get started!"),
-  //   React.createElement(Expenses, { items: expenses })
-  // );
+  // Use the initialExpenses to populate the initial state
+  useState(() => {
+    setExpenses(initialExpenses);
+  });
 
   return (
     <div>
       <h2>Let's get started!</h2>
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
