@@ -4,6 +4,13 @@ import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import ExpenseFilter from './ExpenseFilter';
 import './Expenses.css';
+// Import necessary components
+import Chart from '../Chart/Chart'; // Adjust the path accordingly
+import ChartBar from '../Chart/ChartBar'; // Adjust the path accordingly
+
+// Rest of the code...
+
+
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2023');
@@ -20,6 +27,7 @@ const Expenses = (props) => {
     <Card className="expenses">
       <ExpenseFilter selectedYear={filteredYear} onFilterChange={filterChangeHandler} />
 
+      {/* Render your expenses list */}
       {filteredExpenses.length === 0 ? (
         <p>No expenses found for the selected year.</p>
       ) : (
@@ -30,9 +38,11 @@ const Expenses = (props) => {
         ))
       )}
 
-      {filteredExpenses.length === 1 && (
-        <p>Only single expense here. Please add more...</p>
-      )}
+      {/* Render the Chart component with dataPoints */}
+      <Chart dataPoints={filteredExpenses.map((expense) => ({ label: expense.title, value: expense.amount }))} />
+
+      {/* Render a placeholder ChartBar for demonstration purposes */}
+      <ChartBar key="placeholder" value={50} maxValue={100} label="Placeholder" />
     </Card>
   );
 };

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import ExpenseForm from './components/Expense/ExpenseForm';
 import NewExpense from './components/Expense/NewExpense';
+// Check file extensions
+
 // ... rest of the imports
 
 const App = () => {

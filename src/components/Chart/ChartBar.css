@@ -1,0 +1,30 @@
+/* ChartBar.css */
+.chart-bar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chart-bar_inner {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chart-bar_fill {
+    width: 100%;
+    background-color: #4caf50; /* Green fill color, you can customize this */
+    transition: height 0.3s ease-out; /* Add a smooth transition effect */
+  }
+  
+  .chart-bar_label {
+    margin: 0.5rem 0;
+    font-weight: bold;
+  }
+  

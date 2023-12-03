@@ -1,0 +1,12 @@
+/* Chart.css */
+.chart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100%;
+    padding: 1rem;
+  }
+  
+  /* You may need to add more styles based on your specific design requirements */
+  
