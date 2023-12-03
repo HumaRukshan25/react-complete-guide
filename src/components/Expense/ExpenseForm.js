@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
-//const [enteredTitle, setEnteredTitle] = useState('');
-//const [enteredAmount, setEnteredAmount] = useState('');
-//const [enteredDate, setEnteredDate] = useState('');
+  const [formVisible, setFormVisible] = useState(false);
+
   const [userInput, setUserInput] = useState({
     enteredTitle: '',
     enteredAmount: '',
@@ -15,7 +14,6 @@ const ExpenseForm = (props) => {
     setUserInput((prevState) => ({
       ...prevState,
       enteredTitle: event.target.value,
-     // console.log(event.target.value);
     }));
   };
 
@@ -41,7 +39,6 @@ const ExpenseForm = (props) => {
       amount: +userInput.enteredAmount,
       date: new Date(userInput.enteredDate),
     };
-    console.log(expenseData); // Log the created object
 
     props.onSaveExpenseData(expenseData);
 
@@ -50,24 +47,39 @@ const ExpenseForm = (props) => {
       enteredAmount: '',
       enteredDate: '',
     });
+
+    setFormVisible(false); // Hide the form after submitting
+  };
+
+  const toggleFormVisibility = () => {
+    setFormVisible((prevVisible) => !prevVisible);
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
-        <label>Title</label>
-        <input type="text" value={userInput.enteredTitle} onChange={titleChangeHandler} />
-      </div>
-      <div>
-        <label>Amount</label>
-        <input type="number" value={userInput.enteredAmount} onChange={amountChangeHandler} />
-      </div>
-      <div>
-        <label>Date</label>
-        <input type="date" value={userInput.enteredDate} onChange={dateChangeHandler} />
-      </div>
-      <button type="submit">Add Expense</button>
-    </form>
+    <div>
+      <button onClick={toggleFormVisibility}>Add New Expense</button>
+
+      {formVisible && (
+        <form onSubmit={submitHandler}>
+          <div>
+            <label>Title</label>
+            <input type="text" value={userInput.enteredTitle} onChange={titleChangeHandler} />
+          </div>
+          <div>
+            <label>Amount</label>
+            <input type="number" value={userInput.enteredAmount} onChange={amountChangeHandler} />
+          </div>
+          <div>
+            <label>Date</label>
+            <input type="date" value={userInput.enteredDate} onChange={dateChangeHandler} />
+          </div>
+          <button type="submit">Add Expense</button>
+          <button type="button" onClick={toggleFormVisibility}>
+            Cancel
+          </button>
+        </form>
+      )}
+    </div>
   );
 };
 
