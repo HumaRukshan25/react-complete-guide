@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import ExpenseForm from './components/Expense/ExpenseForm';
+import NewExpense from './components/Expense/NewExpense';
+// ... rest of the imports
 
 const App = () => {
   const [expenses, setExpenses] = useState([
@@ -27,11 +29,17 @@ const App = () => {
   ]);
 
   const saveExpenseDataHandler = (enteredExpenseData) => {
+    console.log('In App.js');
+    console.log(expenses); // This will log the previous state, not the updated state
+
+    // Update expenses state by adding the new expense
     setExpenses((prevExpenses) => {
       return [...prevExpenses, enteredExpenseData];
     });
-  };
 
+    // After updating the state, you can log the updated state if needed
+    console.log('Updated Expenses:', expenses);
+  };
   return (
     <div>
       <h2>Let's get started!</h2>
